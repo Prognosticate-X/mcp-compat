@@ -61,20 +61,24 @@ Anthropic / OpenAI 等现代大模型支持 Prompt Caching（缓存击穿将导�
 
 ## 快速上手
 
-无需事先安装，直接通过 `npx` 从 GitHub 即刻调用：
-
+### 方式 A：全局安装（最推荐，享受最短命令调用）
 ```bash
-# 直接从 GitHub 运行（无需注册 npm，全球即开即用）：
-npx -y github:Prognosticate-X/mcp-compat -- uvx fastmcp run server.py
+# 全局安装一次：
+npm install -g @prognosticate-x/mcp-compat
 
-# 包装 Rust rmcp 构建的二进制程序
-npx -y github:Prognosticate-X/mcp-compat -- ./target/release/my-mcp-server
-
-# 指定自定义缓存时长 (5 分钟) 并输出诊断统计
-npx -y github:Prognosticate-X/mcp-compat --ttl 300000 --scope public --stats -- node my-server.js
+# 以后在任何地方直接使用超短命令（无需加前缀）：
+mcp-compat -- uvx fastmcp run server.py
+mcp-compat -- ./target/release/my-mcp-server
 ```
 
-> **注**：发布到 npm 仓库后，即可使用短名称 `npx -y mcp-compat -- <命令>`。
+### 方式 B：免安装在线拉取（通过 npx 即开即用）
+```bash
+# 通过 npm 官方包运行：
+npx -y @prognosticate-x/mcp-compat -- uvx fastmcp run server.py
+
+# 或直接通过 GitHub 仓库免配置运行：
+npx -y github:Prognosticate-X/mcp-compat -- uvx fastmcp run server.py
+```
 
 ### 客户端配置示例
 
@@ -84,7 +88,7 @@ npx -y github:Prognosticate-X/mcp-compat --ttl 300000 --scope public --stats -- 
   "mcpServers": {
     "my-server": {
       "command": "npx",
-      "args": ["-y", "github:Prognosticate-X/mcp-compat", "--", "uvx", "my-server-cli"]
+      "args": ["-y", "@prognosticate-x/mcp-compat", "--", "uvx", "my-server-cli"]
     }
   }
 }

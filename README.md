@@ -3,7 +3,7 @@
 [![CI](https://github.com/Prognosticate-X/mcp-compat/actions/workflows/ci.yml/badge.svg)](https://github.com/Prognosticate-X/mcp-compat/actions/workflows/ci.yml)
 [![GitHub release](https://img.shields.io/github/v/release/Prognosticate-X/mcp-compat?color=blue)](https://github.com/Prognosticate-X/mcp-compat/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/mcp-compat.svg)](https://www.npmjs.com/package/mcp-compat)
+[![npm version](https://img.shields.io/npm/v/@prognosticate-x/mcp-compat.svg)](https://www.npmjs.com/package/@prognosticate-x/mcp-compat)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-success)](package.json)
 
@@ -72,20 +72,24 @@ See [docs/UPSTREAM_ADVISORY.md](docs/UPSTREAM_ADVISORY.md) for full technical de
 
 ## Quick Start
 
-No installation required. Run directly with `npx` via GitHub repository:
-
+### Option A: Install Globally (Recommended for shortest command)
 ```bash
-# Run directly from GitHub (works immediately, zero setup):
-npx -y github:Prognosticate-X/mcp-compat -- uvx fastmcp run server.py
+# Install once globally:
+npm install -g @prognosticate-x/mcp-compat
 
-# Wrap a Rust rmcp binary:
-npx -y github:Prognosticate-X/mcp-compat -- ./target/release/my-mcp-server
-
-# Pass custom cache hints and print session diagnostics on exit:
-npx -y github:Prognosticate-X/mcp-compat --ttl 300000 --scope public --stats -- node server.js
+# Run directly anywhere with short command (no prefix needed):
+mcp-compat -- uvx fastmcp run server.py
+mcp-compat -- ./target/release/my-mcp-server
 ```
 
-> **Note**: If installed or published to npm, you can use the shorter form `npx -y mcp-compat -- <command>`.
+### Option B: Run On-The-Fly via `npx` (Zero installation)
+```bash
+# Run via npm package:
+npx -y @prognosticate-x/mcp-compat -- uvx fastmcp run server.py
+
+# Or run directly from GitHub (always latest):
+npx -y github:Prognosticate-X/mcp-compat -- uvx fastmcp run server.py
+```
 
 ### Configuration Examples
 
@@ -95,7 +99,7 @@ npx -y github:Prognosticate-X/mcp-compat --ttl 300000 --scope public --stats -- 
   "mcpServers": {
     "my-server": {
       "command": "npx",
-      "args": ["-y", "github:Prognosticate-X/mcp-compat", "--", "uvx", "fastmcp", "run", "server.py"]
+      "args": ["-y", "@prognosticate-x/mcp-compat", "--", "uvx", "fastmcp", "run", "server.py"]
     }
   }
 }

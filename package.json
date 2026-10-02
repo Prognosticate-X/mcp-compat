@@ -1,5 +1,5 @@
 {
-  "name": "mcp-compat",
+  "name": "@prognosticate-x/mcp-compat",
   "version": "1.1.0",
   "description": "Zero-dependency protocol compatibility bridge and prompt cache normalizer for Model Context Protocol (MCP) clients and servers",
   "main": "src/index.js",
