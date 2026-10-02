@@ -1,6 +1,7 @@
 # mcp-compat
 
 [![CI](https://github.com/Prognosticate-X/mcp-compat/actions/workflows/ci.yml/badge.svg)](https://github.com/Prognosticate-X/mcp-compat/actions/workflows/ci.yml)
+[![GitHub release](https://img.shields.io/github/v/release/Prognosticate-X/mcp-compat?color=blue)](https://github.com/Prognosticate-X/mcp-compat/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![npm version](https://img.shields.io/npm/v/mcp-compat.svg)](https://www.npmjs.com/package/mcp-compat)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
