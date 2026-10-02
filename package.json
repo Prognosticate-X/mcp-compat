@@ -1,0 +1,50 @@
+{
+  "name": "mcp-compat",
+  "version": "1.1.0",
+  "description": "Zero-dependency protocol compatibility bridge and prompt cache normalizer for Model Context Protocol (MCP) clients and servers",
+  "main": "src/index.js",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./normalizer": "./src/normalizer.js",
+    "./engine": "./src/engine.js",
+    "./reproduction": "./src/reproduction.js"
+  },
+  "bin": {
+    "mcp-compat": "./bin/mcp-compat.js"
+  },
+  "scripts": {
+    "test": "node --test test/reproduction.test.js test/normalizer.test.js test/e2e.test.js",
+    "bench": "node bench/cache-bench.js",
+    "repro": "node src/reproduction.js",
+    "start": "node bin/mcp-compat.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude-code",
+    "prompt-caching",
+    "cache-invalidation",
+    "llm",
+    "ai-agents",
+    "json-rpc",
+    "proxy",
+    "compatibility"
+  ],
+  "author": "Prognosticate X",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prognosticate-X/mcp-compat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Prognosticate-X/mcp-compat/issues"
+  },
+  "homepage": "https://github.com/Prognosticate-X/mcp-compat#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
