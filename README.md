@@ -58,20 +58,33 @@ Modern LLM providers (Anthropic, OpenAI, DeepSeek) offer Prompt Caching, cutting
 
 ---
 
+## Upstream Community Status
+
+| Upstream Project | Tracking Item | Status | Contribution |
+|---|---|:---:|---|
+| **Anthropic Claude Code** | [#88128](https://github.com/anthropics/claude-code/issues/88128) | Active | [Comment #5944611446](https://github.com/anthropics/claude-code/issues/88128#issuecomment-5944611446) (Root cause + Workaround) |
+| **Microsoft Agent Framework** | [#8245](https://github.com/microsoft/agent-framework/issues/8245) | In Review | [PR #8960](https://github.com/microsoft/agent-framework/pull/8960) (Deterministic Schema Sorting) |
+
+See [docs/UPSTREAM_ADVISORY.md](docs/UPSTREAM_ADVISORY.md) for full technical details.
+
+---
+
 ## Quick Start
 
-No installation required. Run directly with `npx`:
+No installation required. Run directly with `npx` via GitHub repository:
 
 ```bash
-# Wrap a Python FastMCP server:
-npx -y mcp-compat -- uvx fastmcp run server.py
+# Run directly from GitHub (works immediately, zero setup):
+npx -y github:Prognosticate-X/mcp-compat -- uvx fastmcp run server.py
 
 # Wrap a Rust rmcp binary:
-npx -y mcp-compat -- ./target/release/my-mcp-server
+npx -y github:Prognosticate-X/mcp-compat -- ./target/release/my-mcp-server
 
 # Pass custom cache hints and print session diagnostics on exit:
-npx -y mcp-compat --ttl 300000 --scope public --stats -- node server.js
+npx -y github:Prognosticate-X/mcp-compat --ttl 300000 --scope public --stats -- node server.js
 ```
+
+> **Note**: If installed or published to npm, you can use the shorter form `npx -y mcp-compat -- <command>`.
 
 ### Configuration Examples
 
@@ -81,7 +94,7 @@ npx -y mcp-compat --ttl 300000 --scope public --stats -- node server.js
   "mcpServers": {
     "my-server": {
       "command": "npx",
-      "args": ["-y", "mcp-compat", "--", "uvx", "fastmcp", "run", "server.py"]
+      "args": ["-y", "github:Prognosticate-X/mcp-compat", "--", "uvx", "fastmcp", "run", "server.py"]
     }
   }
 }

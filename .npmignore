@@ -1,0 +1,6 @@
+test/
+bench/
+examples/
+.github/
+docs/CLAUDE_CODE_ISSUE_COMMENT.md
+docs/comment_body.md

@@ -48,20 +48,33 @@ Anthropic / OpenAI 等现代大模型支持 Prompt Caching（缓存击穿将导�
 
 ---
 
+## 上游社区贡献状态
+
+| 上游项目 | 关联议题 | 状态 | 贡献内容 |
+|---|---|:---:|---|
+| **Anthropic Claude Code** | [#88128](https://github.com/anthropics/claude-code/issues/88128) | 已回复 | [Comment #5944611446](https://github.com/anthropics/claude-code/issues/88128#issuecomment-5944611446) (根因证据 + 临时 Workaround) |
+| **Microsoft Agent Framework** | [#8245](https://github.com/microsoft/agent-framework/issues/8245) | 评审中 | [PR #8960](https://github.com/microsoft/agent-framework/pull/8960) (输入 Schema 确定性排序) |
+
+详见 [docs/UPSTREAM_ADVISORY.md](UPSTREAM_ADVISORY.md)。
+
+---
+
 ## 快速上手
 
-无需安装，直接通过 `npx` 启动任意现有的 MCP 服务端：
+无需事先安装，直接通过 `npx` 从 GitHub 即刻调用：
 
 ```bash
-# 包装 Python FastMCP 服务
-npx mcp-compat -- uvx fastmcp run server.py
+# 直接从 GitHub 运行（无需注册 npm，全球即开即用）：
+npx -y github:Prognosticate-X/mcp-compat -- uvx fastmcp run server.py
 
 # 包装 Rust rmcp 构建的二进制程序
-npx mcp-compat -- ./target/release/my-mcp-server
+npx -y github:Prognosticate-X/mcp-compat -- ./target/release/my-mcp-server
 
 # 指定自定义缓存时长 (5 分钟) 并输出诊断统计
-npx mcp-compat --ttl 300000 --scope public --stats -- node my-server.js
+npx -y github:Prognosticate-X/mcp-compat --ttl 300000 --scope public --stats -- node my-server.js
 ```
+
+> **注**：发布到 npm 仓库后，即可使用短名称 `npx -y mcp-compat -- <命令>`。
 
 ### 客户端配置示例
 
@@ -71,7 +84,7 @@ npx mcp-compat --ttl 300000 --scope public --stats -- node my-server.js
   "mcpServers": {
     "my-server": {
       "command": "npx",
-      "args": ["-y", "mcp-compat", "--", "uvx", "my-server-cli"]
+      "args": ["-y", "github:Prognosticate-X/mcp-compat", "--", "uvx", "my-server-cli"]
     }
   }
 }
