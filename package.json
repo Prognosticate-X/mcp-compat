@@ -11,7 +11,7 @@
     "./reproduction": "./src/reproduction.js"
   },
   "bin": {
-    "mcp-compat": "./bin/mcp-compat.js"
+    "mcp-compat": "bin/mcp-compat.js"
   },
   "scripts": {
     "test": "node --test test/reproduction.test.js test/normalizer.test.js test/e2e.test.js",
